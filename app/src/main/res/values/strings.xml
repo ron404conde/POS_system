@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">POS</string>
+
+    <string name="header_InventoryFillUp">Inventory details</string>
+    <string name="parent_InventoryFillUp">Enter your Item Information</string>
+    <string name="product_id_label">Product ID</string>
+    <string name="product_name_label">Product Name</string>
+    <string name="product_category_label">Category</string>
+    <string name="product_stocks_label">Stocks</string>
+    <string name="product_price_label">Price</string>
+    <string name="product_discount_label">Discount Percentage</string>
+    <string name="product_reorder_label">Reorder Level</string>
+    <string name="reminder_label">Click next to scan the barcode of the Item</string>
+    <string name="button_next">NEXT</string>
 </resources>
