@@ -81,12 +81,12 @@ public class ProductInventory_FillUp extends AppCompatActivity {
     private void get_ProductCategory() {
         requestQueue = Volley.newRequestQueue(this);
         spinner_category = findViewById(R.id.input_ProductCategory);
-        String url = "";
+        String url = "http://192.168.43.32/pos_system/get_category.php";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    JSONArray jsonArray = response.getJSONArray("");
+                    JSONArray jsonArray = response.getJSONArray("tblproductcategory");
 
                     for (int i=0; i<jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
@@ -96,13 +96,14 @@ public class ProductInventory_FillUp extends AppCompatActivity {
                         spinner_category.setAdapter(categoryAdapter);
                     }
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                    // e.printStackTrace();
+                    Toast.makeText(ProductInventory_FillUp.this, "Error 01: " + e.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(ProductInventory_FillUp.this, "Error: " + error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProductInventory_FillUp.this, "Error 02: " + error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue.add(jsonObjectRequest);
