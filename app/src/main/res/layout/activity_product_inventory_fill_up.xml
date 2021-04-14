@@ -64,7 +64,7 @@
                         android:layout_centerVertical="true"
                         android:background="@color/input_backgroundColor"
                         android:imeOptions="actionNext"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:maxLines="1"
                         android:textColor="@color/main_textColor"
                         android:textSize="15dp"
