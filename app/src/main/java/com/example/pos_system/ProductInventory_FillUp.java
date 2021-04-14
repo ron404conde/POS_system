@@ -38,7 +38,7 @@ public class ProductInventory_FillUp extends AppCompatActivity {
     RequestQueue requestQueue;
 
     Button button_Next;
-    TextView input_ProductID, input_ProductName, input_ProductStocks, input_ProductPrice, input_ProductDiscount, input_ProductReorder;
+    TextView text_ProductID, text_ProductName, text_ProductStocks, text_ProductPrice, text_ProductDiscount, text_ProductReorder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +47,18 @@ public class ProductInventory_FillUp extends AppCompatActivity {
 
         setActionBar_InventoryFillUp(); // Header BackButton
         get_ProductCategory();
-
-        button_Next = findViewById(R.id.button_Next);
-        input_ProductID = findViewById(R.id.input_ProductID);
+        initialize_AllVariables();
         button_NextClick();
+    }
+
+    private void initialize_AllVariables() {
+        button_Next = findViewById(R.id.button_Next);
+        text_ProductID = findViewById(R.id.input_ProductID);
+        text_ProductName = findViewById(R.id.input_ProductName);
+        text_ProductStocks = findViewById(R.id.input_ProductStocks);
+        text_ProductPrice = findViewById(R.id.input_ProductPrice);
+        text_ProductDiscount = findViewById(R.id.input_ProductDiscount);
+        text_ProductReorder = findViewById(R.id.input_ProductReorder);
     }
 
     private void setActionBar_InventoryFillUp() {
@@ -67,29 +75,27 @@ public class ProductInventory_FillUp extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
         spinner_category = findViewById(R.id.input_ProductCategory);
         String url = "http://192.168.43.32/pos_system/get_category.php";
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONArray jsonArray = response.getJSONArray("tblproductcategory");
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, response -> {
+            try {
+                JSONArray jsonArray = response.getJSONArray("tblproductcategory");
 
-                    for (int i=0; i<jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        String category_name = jsonObject.optString("category_name");
-                        categoryList.add(category_name);
-                        categoryAdapter = new ArrayAdapter<>(ProductInventory_FillUp.this, android.R.layout.simple_spinner_item, categoryList);
-                        spinner_category.setAdapter(categoryAdapter);
-                    }
-                } catch (JSONException e) {
-                    Toast.makeText(ProductInventory_FillUp.this, "Error 01: " + e.toString(), Toast.LENGTH_SHORT).show();
+                for (int i=0; i<jsonArray.length(); i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    String category_name = jsonObject.optString("category_name");
+                    categoryList.add(category_name);
+                    categoryAdapter = new ArrayAdapter<>(ProductInventory_FillUp.this, android.R.layout.simple_spinner_item, categoryList);
+                    spinner_category.setAdapter(categoryAdapter);
                 }
+            } catch (JSONException e) {
+                Toast.makeText(ProductInventory_FillUp.this, "Error 01: " + e.toString(), Toast.LENGTH_SHORT).show();
             }
         }, error -> Toast.makeText(ProductInventory_FillUp.this, "Error 02: " + error.toString(), Toast.LENGTH_SHORT).show());
         requestQueue.add(jsonObjectRequest);
     }
 
     private void button_NextClick() {
-        button_Next.setOnClickListener(view -> scan_QRandBarcode());
+        // button_Next.setOnClickListener(view -> scan_QRandBarcode());
+        button_Next.setOnClickListener(view -> check_inputNull());
     }
 
     private void scan_QRandBarcode(){
@@ -110,7 +116,7 @@ public class ProductInventory_FillUp extends AppCompatActivity {
                 builder.setMessage(result.getContents());
                 builder.setTitle("Product ID");
 
-                input_ProductID.setText(result.getContents()); // setText for ProductID
+                text_ProductID.setText(result.getContents()); // setText for ProductID
 
                 builder.setPositiveButton("Scan again", (dialogInterface, i) -> {
                     scan_QRandBarcode();
@@ -129,11 +135,10 @@ public class ProductInventory_FillUp extends AppCompatActivity {
     }
 
     private void check_inputNull() {
-        // TextView input_ProductID, input_ProductName, input_ProductStocks, input_ProductPrice, input_ProductDiscount, input_ProductReorder;
-
-    }
-
-    private void initialize_inputVariables() {
-
+        if (text_ProductID.getText().length() > 0 && text_ProductName.getText().length() > 0 && text_ProductStocks.getText().length() > 0
+                && text_ProductPrice.getText().length() > 0 && text_ProductDiscount.getText().length() > 0 && text_ProductReorder.getText().length() > 0)
+        {
+            scan_QRandBarcode();
+        } else Toast.makeText(this, "All fields are required!", Toast.LENGTH_SHORT).show();
     }
 }
