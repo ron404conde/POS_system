@@ -16,8 +16,6 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -26,7 +24,6 @@ import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class ProductInventory_FillUp extends AppCompatActivity {
@@ -94,7 +91,6 @@ public class ProductInventory_FillUp extends AppCompatActivity {
     }
 
     private void button_NextClick() {
-        // button_Next.setOnClickListener(view -> scan_QRandBarcode());
         button_Next.setOnClickListener(view -> check_inputNull());
     }
 
@@ -135,8 +131,8 @@ public class ProductInventory_FillUp extends AppCompatActivity {
     }
 
     private void check_inputNull() {
-        if (text_ProductID.getText().length() > 0 && text_ProductName.getText().length() > 0 && text_ProductStocks.getText().length() > 0
-                && text_ProductPrice.getText().length() > 0 && text_ProductDiscount.getText().length() > 0 && text_ProductReorder.getText().length() > 0)
+        if (text_ProductName.getText().length() > 0 && text_ProductStocks.getText().length() > 0 && text_ProductPrice.getText().length() > 0
+                && text_ProductDiscount.getText().length() > 0 && text_ProductReorder.getText().length() > 0)
         {
             scan_QRandBarcode();
         } else Toast.makeText(this, "All fields are required!", Toast.LENGTH_SHORT).show();
