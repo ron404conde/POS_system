@@ -8,4 +8,412 @@
     android:fillViewport="true"
     tools:context=".ProductInventory_ReviewInfo">
 
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/header_InventoryReviewInfo_MainParent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/parent_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/parent_InventoryReviewInfo"
+                android:textColor="@color/main_textColor"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/calibri"/>
+
+            <RelativeLayout
+                android:id="@+id/product_id_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/parent_text"
+                android:layout_marginTop="25dp">
+
+                <TextView
+                    android:id="@+id/product_id_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_id_label"
+                    android:textColor="@color/main_textColor"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/calibri"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/product_id_cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/product_id_label"
+                    app:cardBackgroundColor="@color/backgroundColor_reviewinfo"
+                    app:cardElevation="0dp"
+                    android:layout_marginTop="5dp">
+
+                    <EditText
+                        android:id="@+id/input_ProductID"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:background="@color/backgroundColor_reviewinfo"
+                        android:imeOptions="actionNext"
+                        android:inputType="none"
+                        android:enabled="false"
+                        android:maxLines="1"
+                        android:textColor="@color/main_textColor"
+                        android:textSize="15dp"
+                        tools:ignore="TextFields"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/product_name_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/product_id_parent"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/product_name_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_name_label"
+                    android:textColor="@color/main_textColor"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/calibri"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/product_name_cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/product_name_label"
+                    app:cardBackgroundColor="@color/backgroundColor_reviewinfo"
+                    app:cardElevation="0dp"
+                    android:layout_marginTop="5dp">
+
+                    <EditText
+                        android:id="@+id/input_ProductName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:background="@color/backgroundColor_reviewinfo"
+                        android:imeOptions="actionNext"
+                        android:inputType="none"
+                        android:enabled="false"
+                        android:maxLines="1"
+                        android:textColor="@color/main_textColor"
+                        android:textSize="15dp"
+                        tools:ignore="TextFields"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/product_category_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/product_name_parent"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/product_category_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_category_label"
+                    android:textColor="@color/main_textColor"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/calibri"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/product_category_cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/product_category_label"
+                    app:cardBackgroundColor="@color/backgroundColor_reviewinfo"
+                    app:cardElevation="0dp"
+                    android:layout_marginTop="5dp">
+
+<!--                    <Spinner-->
+<!--                        android:id="@+id/input_ProductCategory"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_centerVertical="true"-->
+<!--                        android:spinnerMode="dropdown"-->
+<!--                        android:paddingRight="5dp"-->
+<!--                        android:paddingLeft="5dp" />-->
+
+                    <EditText
+                        android:id="@+id/input_ProductCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:background="@color/backgroundColor_reviewinfo"
+                        android:imeOptions="actionNext"
+                        android:inputType="none"
+                        android:enabled="false"
+                        android:maxLines="1"
+                        android:textColor="@color/main_textColor"
+                        android:textSize="15dp"
+                        tools:ignore="TextFields"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/product_stocks_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/product_category_parent"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/product_stocks_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_stocks_label"
+                    android:textColor="@color/main_textColor"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/calibri"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/product_stocks_cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/product_stocks_label"
+                    app:cardBackgroundColor="@color/backgroundColor_reviewinfo"
+                    app:cardElevation="0dp"
+                    android:layout_marginTop="5dp">
+
+                    <EditText
+                        android:id="@+id/input_ProductStocks"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:background="@color/backgroundColor_reviewinfo"
+                        android:imeOptions="actionNext"
+                        android:inputType="none"
+                        android:enabled="false"
+                        android:maxLines="1"
+                        android:textColor="@color/main_textColor"
+                        android:textSize="15dp"
+                        tools:ignore="TextFields"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/product_price_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/product_stocks_parent"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/product_price_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_price_label"
+                    android:textColor="@color/main_textColor"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/calibri"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/product_price_cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/product_price_label"
+                    app:cardBackgroundColor="@color/backgroundColor_reviewinfo"
+                    app:cardElevation="0dp"
+                    android:layout_marginTop="5dp">
+
+                    <EditText
+                        android:id="@+id/input_ProductPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:background="@color/backgroundColor_reviewinfo"
+                        android:imeOptions="actionNext"
+                        android:inputType="none"
+                        android:enabled="false"
+                        android:maxLines="1"
+                        android:textColor="@color/main_textColor"
+                        android:textSize="15dp"
+                        tools:ignore="TextFields"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/product_discount_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/product_price_parent"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/product_discount_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_discount_label"
+                    android:textColor="@color/main_textColor"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/calibri"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/product_discount_cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/product_discount_label"
+                    app:cardBackgroundColor="@color/backgroundColor_reviewinfo"
+                    app:cardElevation="0dp"
+                    android:layout_marginTop="5dp">
+
+                    <EditText
+                        android:id="@+id/input_ProductDiscount"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:background="@color/backgroundColor_reviewinfo"
+                        android:imeOptions="actionNext"
+                        android:inputType="none"
+                        android:enabled="false"
+                        android:maxLines="1"
+                        android:textColor="@color/main_textColor"
+                        android:textSize="15dp"
+                        tools:ignore="TextFields"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/product_reorder_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/product_discount_parent"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/product_reorder_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_reorder_label"
+                    android:textColor="@color/main_textColor"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/calibri"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/product_reorder_cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/product_reorder_label"
+                    app:cardBackgroundColor="@color/backgroundColor_reviewinfo"
+                    app:cardElevation="0dp"
+                    android:layout_marginTop="5dp">
+
+                    <EditText
+                        android:id="@+id/input_ProductReorder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:background="@color/backgroundColor_reviewinfo"
+                        android:imeOptions="actionDone"
+                        android:inputType="none"
+                        android:enabled="false"
+                        android:maxLines="1"
+                        android:textColor="@color/main_textColor"
+                        android:textSize="15dp"
+                        tools:ignore="TextFields"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+            <!-- <RelativeLayout
+                android:id="@+id/reminder_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/product_reorder_parent"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/reminder_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reminder_label"
+                    android:textColor="@color/main_textColor"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/calibri"/>
+            </RelativeLayout> -->
+
+            <RelativeLayout
+                android:id="@+id/nextbutton_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/product_reorder_parent"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <Button
+                    android:id="@+id/button_Back"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:text="@string/button_back"
+                    android:elevation="0dp"
+                    android:background="#0073C1"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"/>
+
+                <Button
+                    android:id="@+id/button_Save"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:text="@string/button_save"
+                    android:elevation="0dp"
+                    android:background="#0073C1"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+
+
 </androidx.core.widget.NestedScrollView>

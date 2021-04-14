@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -42,7 +43,7 @@ public class ProductInventory_FillUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_inventory_fill_up);
 
-        setActionBar_InventoryFillUp(); // Header BackButton
+        setActionBar_InventoryFillUp();
         get_ProductCategory();
         initialize_AllVariables();
         button_NextClick();
@@ -114,10 +115,11 @@ public class ProductInventory_FillUp extends AppCompatActivity {
 
                 text_ProductID.setText(result.getContents()); // setText for ProductID
 
-                builder.setPositiveButton("Scan again", (dialogInterface, i) -> {
+                builder.setPositiveButton("Next", (dialogInterface, i) -> {
+                    // dialogInterface.dismiss();
+                    pass_ProductInfo_ForReview();
+                }).setNegativeButton("Scan again", (dialogInterface, i) -> {
                     scan_QRandBarcode();
-                }).setNegativeButton("Finish", (dialogInterface, i) -> {
-                    dialogInterface.dismiss();
                 });
 
                 AlertDialog dialog = builder.create();
@@ -136,5 +138,24 @@ public class ProductInventory_FillUp extends AppCompatActivity {
         {
             scan_QRandBarcode();
         } else Toast.makeText(this, "All fields are required!", Toast.LENGTH_SHORT).show();
+    }
+
+    private void pass_ProductInfo_ForReview() {
+        Intent i = new Intent(ProductInventory_FillUp.this, ProductInventory_ReviewInfo.class);
+        i.putExtra("i_productID", String.valueOf(text_ProductID.getText()));
+        i.putExtra("i_productName", String.valueOf(text_ProductName.getText()));
+        i.putExtra("i_productStocks", String.valueOf(text_ProductStocks.getText()));
+        i.putExtra("i_productPrice", String.valueOf(text_ProductPrice.getText()));
+        i.putExtra("i_productDiscount", String.valueOf(text_ProductDiscount.getText()));
+        i.putExtra("i_productReorder", String.valueOf(text_ProductReorder.getText()));
+
+        startActivity(i);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        //Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        //startActivityForResult(myIntent, 0);
+        super.onBackPressed(); // for this the application will close because this is the main activity for now
+        return true;
     }
 }

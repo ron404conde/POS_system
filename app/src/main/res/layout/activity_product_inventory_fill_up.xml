@@ -314,7 +314,7 @@
                         android:layout_height="match_parent"
                         android:layout_centerVertical="true"
                         android:background="@color/input_backgroundColor"
-                        android:imeOptions="actionNext"
+                        android:imeOptions="actionDone"
                         android:inputType="text"
                         android:maxLines="1"
                         android:textColor="@color/main_textColor"

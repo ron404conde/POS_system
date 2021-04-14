@@ -12,4 +12,9 @@
     <string name="product_reorder_label">Reorder Level</string>
     <string name="reminder_label">Click next to scan the barcode of the Item</string>
     <string name="button_next">NEXT</string>
+
+    <string name="header_InventoryReviewInfo">Inventory details (Review)</string>
+    <string name="parent_InventoryReviewInfo">"Please verify if all information's are correct"</string>
+    <string name="button_back">BACK</string>
+    <string name="button_save">SAVE</string>
 </resources>
