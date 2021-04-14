@@ -64,7 +64,7 @@
                         android:layout_centerVertical="true"
                         android:background="@color/input_backgroundColor"
                         android:imeOptions="actionNext"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:maxLines="1"
                         android:textColor="@color/main_textColor"
                         android:textSize="15dp"
@@ -149,11 +149,8 @@
                         android:layout_height="match_parent"
                         android:layout_centerVertical="true"
                         android:spinnerMode="dropdown"
-                        android:background="@color/input_backgroundColor"
-                        android:textColor="@color/main_textColor"
-                        android:paddingRight="10dp"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="1dp"/>
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp" />
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
 
@@ -189,7 +186,7 @@
                         android:layout_centerVertical="true"
                         android:background="@color/input_backgroundColor"
                         android:imeOptions="actionNext"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:maxLines="1"
                         android:textColor="@color/main_textColor"
                         android:textSize="15dp"
@@ -232,7 +229,7 @@
                         android:layout_centerVertical="true"
                         android:background="@color/input_backgroundColor"
                         android:imeOptions="actionNext"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:maxLines="1"
                         android:textColor="@color/main_textColor"
                         android:textSize="15dp"
@@ -275,7 +272,7 @@
                         android:layout_centerVertical="true"
                         android:background="@color/input_backgroundColor"
                         android:imeOptions="actionNext"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:maxLines="1"
                         android:textColor="@color/main_textColor"
                         android:textSize="15dp"
