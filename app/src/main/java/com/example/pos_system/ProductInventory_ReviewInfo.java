@@ -7,10 +7,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class ProductInventory_ReviewInfo extends AppCompatActivity {
 
@@ -27,6 +31,8 @@ public class ProductInventory_ReviewInfo extends AppCompatActivity {
         initialize_AllVariables();
         get_ProductInfo_ForReview();
         button_BackCLick();
+
+        save_ProductInventory_Information();
     }
 
     private void initialize_AllVariables() {
@@ -62,17 +68,51 @@ public class ProductInventory_ReviewInfo extends AppCompatActivity {
     }
 
     private void button_BackCLick() {
-        // button_Back.setOnClickListener(view -> startActivity(new Intent(ProductInventory_ReviewInfo.this, ProductInventory_FillUp.class)));
-
         button_Back.setOnClickListener(view -> super.onBackPressed());
     }
 
-
     public boolean onOptionsItemSelected(MenuItem item){
-//        Intent myIntent = new Intent(getApplicationContext(), ProductInventory_FillUp.class);
-//        startActivityForResult(myIntent, 0);
-
         super.onBackPressed();
         return true;
+    }
+
+
+
+    private void save_ProductInventory_Information() {
+        button_Save.setOnClickListener(view -> {
+            try {
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(() -> {
+                    String[] field = new String[6];
+                    field[0] = "product_id";
+                    field[1] = "product_name";
+                    field[2] = "product_stocks";
+                    field[3] = "product_price";
+                    field[4] = "product_discount";
+                    field[5] = "product_reorder";
+
+                    String[] data = new String[6];
+                    data[0] = String.valueOf(text_ProductID.getText());
+                    data[1] = String.valueOf(text_ProductName.getText());
+                    data[2] = String.valueOf(text_ProductStocks.getText());
+                    data[3] = String.valueOf(text_ProductPrice.getText());
+                    data[4] = String.valueOf(text_ProductDiscount.getText());
+                    data[5] = String.valueOf(text_ProductReorder.getText());
+
+                    PutData putData = new PutData("http://192.168.43.32/pos_system/saveproductinventory.php", "POST", field, data);
+                    if (putData.startPut()) {
+                        if (putData.onComplete()) {
+                            String result = putData.getResult();
+
+                            if (result.equals("Save success")) {
+                                Toast.makeText(this, "Product Information save success!", Toast.LENGTH_SHORT).show();
+                            } else Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            } catch (Exception exception) {
+                Toast.makeText(ProductInventory_ReviewInfo.this, "Error: " + exception.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

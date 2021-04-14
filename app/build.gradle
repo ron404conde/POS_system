@@ -41,4 +41,6 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.1'
 
     implementation 'com.journeyapps:zxing-android-embedded:3.4.0' // barcode scanner
+
+    implementation 'com.github.VishnuSivadasVS:Advanced-HttpURLConnection:1.2'
 }
