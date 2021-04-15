@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 public class ProductInventory_ReviewInfo extends AppCompatActivity {
 
     ActionBar actionBar;
-    TextView text_ProductID, text_ProductName, text_ProductStocks, text_ProductPrice, text_ProductDiscount, text_ProductReorder;
+    TextView text_ProductID, text_ProductName, text_ProductStocks, text_ProductPrice, text_ProductDiscount, text_ProductReorder, text_ProductCategory;
     Button button_Back, button_Save;
 
     @Override
@@ -45,6 +46,7 @@ public class ProductInventory_ReviewInfo extends AppCompatActivity {
 
         button_Back = findViewById(R.id.button_Back);
         button_Save = findViewById(R.id.button_Save);
+        text_ProductCategory = findViewById(R.id.input_ProductCategory);
     }
 
     private void setActionBar_InventoryReviewInfo() {
@@ -65,18 +67,21 @@ public class ProductInventory_ReviewInfo extends AppCompatActivity {
         text_ProductPrice.setText(i.getStringExtra("i_productPrice"));
         text_ProductDiscount.setText(i.getStringExtra("i_productDiscount"));
         text_ProductReorder.setText(i.getStringExtra("i_productReorder"));
+        text_ProductCategory.setText(i.getStringExtra("i_productCategory"));
     }
 
     private void button_BackCLick() {
-        button_Back.setOnClickListener(view -> super.onBackPressed());
+        button_Back.setOnClickListener(view -> {
+            super.onBackPressed();
+            overridePendingTransition(R.xml.trans_right_in, R.xml.trans_right_out);
+        });
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
         super.onBackPressed();
+        overridePendingTransition(R.xml.trans_right_in, R.xml.trans_right_out);
         return true;
     }
-
-
 
     private void save_ProductInventory_Information() {
         button_Save.setOnClickListener(view -> {

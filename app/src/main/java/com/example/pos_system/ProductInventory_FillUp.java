@@ -57,6 +57,7 @@ public class ProductInventory_FillUp extends AppCompatActivity {
         text_ProductPrice = findViewById(R.id.input_ProductPrice);
         text_ProductDiscount = findViewById(R.id.input_ProductDiscount);
         text_ProductReorder = findViewById(R.id.input_ProductReorder);
+        spinner_category = findViewById(R.id.input_ProductCategory);
     }
 
     private void setActionBar_InventoryFillUp() {
@@ -71,7 +72,8 @@ public class ProductInventory_FillUp extends AppCompatActivity {
 
     private void get_ProductCategory() {
         requestQueue = Volley.newRequestQueue(this);
-        spinner_category = findViewById(R.id.input_ProductCategory);
+        // spinner_category = findViewById(R.id.input_ProductCategory);
+
         String url = "http://192.168.43.32/pos_system/get_category.php";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, response -> {
             try {
@@ -148,14 +150,16 @@ public class ProductInventory_FillUp extends AppCompatActivity {
         i.putExtra("i_productPrice", String.valueOf(text_ProductPrice.getText()));
         i.putExtra("i_productDiscount", String.valueOf(text_ProductDiscount.getText()));
         i.putExtra("i_productReorder", String.valueOf(text_ProductReorder.getText()));
+        i.putExtra("i_productCategory", String.valueOf(spinner_category.getSelectedItem()));
 
         startActivity(i);
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
-        //Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-        //startActivityForResult(myIntent, 0);
-        super.onBackPressed(); // for this the application will close because this is the main activity for now
+        //super.onBackPressed();
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+        overridePendingTransition(R.xml.trans_right_in, R.xml.trans_right_out);
         return true;
     }
 }
