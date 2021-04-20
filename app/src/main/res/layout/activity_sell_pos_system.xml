@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dashboard_POS_system">
+    tools:context=".Sell_POS_system">
 
     <TextView
         android:layout_width="wrap_content"
@@ -12,8 +12,8 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:textSize="20dp"
-        android:text="HOME"/>
-    
+        android:text="SELL"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,14 +24,5 @@
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu_navigation"
         android:layout_alignParentBottom="true"/>
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nvView"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@android:color/white"
-        app:itemTextColor="@color/black"
-        app:menu="@menu/menu_main" />
 
 </RelativeLayout>

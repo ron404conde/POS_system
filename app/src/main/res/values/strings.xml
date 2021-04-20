@@ -17,4 +17,7 @@
     <string name="parent_InventoryReviewInfo">"Please verify if all information's are correct"</string>
     <string name="button_back">BACK</string>
     <string name="button_save">SAVE</string>
+
+    <string name="header_dashboard_pos">Dashboard</string>
+    <string name="header_sell_pos">Sell Product</string>
 </resources>

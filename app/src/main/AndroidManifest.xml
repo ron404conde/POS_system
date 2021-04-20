@@ -13,10 +13,11 @@
         android:theme="@style/Theme.POS_system"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
-        <activity android:name=".Dashboard_POS_system"></activity>
+        <activity android:name=".Sell_POS_system"></activity>
+        <activity android:name=".ProductInventory_FillUp" />
         <activity android:name=".ProductInventory_ReviewInfo" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".ProductInventory_FillUp">
+        <activity android:name=".Dashboard_POS_system">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,14 +30,14 @@
             android:stateNotNeeded="true"
             android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-
     <uses-feature
         android:name="android.hardware.camera"
         tools:ignore="ManifestOrder" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
